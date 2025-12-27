@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Kamu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f5f7fa, #e8ecf1);
+      font-family: 'Inter', sans-serif;
+      color: #2f2f2f;
+    }
+    .card {
+      background: rgba(255,255,255,0.9);
+      max-width: 720px;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      animation: fadeIn 1.2s ease;
+    }
+    h1 {
+      font-weight: 500;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    p {
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+    .media {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    input[type="file"] {
+      font-size: 14px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 16px;
+      display: none;
+    }
+    audio {
+      width: 100%;
+      display: none;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Untuk Kamu</h1>
+    <p>Aku cuma mau bilang makasih ya, karena sempat jadi bagian dari hari-hariku dan jadi notif yang paling aku tunggu selama ini.</p>
+    <p>Enggak masalah kok kalau memang kamu ngerasa kita belum bisa lanjut lebih jauh atau kamu belum bisa buka hati. Aku sangat menghargai itu.</p>
+    <p>Daripada kita tiba-tiba hilang dan jadi asing, aku lebih milih kita balik jadi teman biasa aja yang santai kayak awal. Jadi, jangan merasa terbebani ya, aku nggak akan nuntut apa-apa lagi.</p>
+    <p>Kita mulai dengan baik-baik, aku harap kita juga tetap baik-baik sebagai teman. <em>Take care ya, sukses terus buat semua urusan kamu.</em></p>
+
+    <div class="media">
+      <label>Tambahkan foto kenangan</label>
+      <input type="file" accept="image/*" onchange="showImage(event)" />
+      <img id="preview" />
+
+      <label>Tambahkan lagu</label>
+      <input type="file" accept="audio/*" onchange="playAudio(event)" />
+      <audio id="audio" controls></audio>
+    </div>
+
+    <footer>
+      dibuat dengan tulus ✨
+    </footer>
+  </div>
+
+  <script>
+    function showImage(event) {
+      const img = document.getElementById('preview');
+      img.src = URL.createObjectURL(event.target.files[0]);
+      img.style.display = 'block';
+    }
+    function playAudio(event) {
+      const audio = document.getElementById('audio');
+      audio.src = URL.createObjectURL(event.target.files[0]);
+      audio.style.display = 'block';
+      audio.play();
+    }
+  </script>
+</body>
+</html>
