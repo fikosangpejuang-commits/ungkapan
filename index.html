@@ -1,105 +1,135 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Untuk Kamu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #f5f7fa, #e8ecf1);
-      font-family: 'Inter', sans-serif;
-      color: #2f2f2f;
-    }
-    .card {
-      background: rgba(255,255,255,0.9);
-      max-width: 720px;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      animation: fadeIn 1.2s ease;
-    }
-    h1 {
-      font-weight: 500;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-    p {
-      line-height: 1.8;
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-    .media {
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-    }
-    input[type="file"] {
-      font-size: 14px;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 16px;
-      display: none;
-    }
-    audio {
-      width: 100%;
-      display: none;
-    }
-    footer {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 14px;
-      color: #777;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebuah Pengakuan Diam-Diam</title>
+
+<!-- Font klasik -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: 
+    linear-gradient(rgba(0,80,120,0.6), rgba(0,80,120,0.6)),
+    url('foto.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  max-width: 700px;
+  padding: 30px;
+  animation: fadeIn 2s ease forwards;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: slideUp 1.5s ease forwards;
+}
+
+.subtitle {
+  font-style: italic;
+  margin-bottom: 25px;
+  opacity: 0;
+  animation: slideUp 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: fadeText 1.5s ease forwards;
+}
+
+/* Delay bertahap */
+p:nth-of-type(1) { animation-delay: 1s; }
+p:nth-of-type(2) { animation-delay: 2s; }
+p:nth-of-type(3) { animation-delay: 3s; }
+
+.hint {
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeText {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>
 </head>
-<body>
-  <div class="card">
-    <h1>Untuk Kamu</h1>
-    <p>Aku cuma mau bilang makasih ya, karena sempat jadi bagian dari hari-hariku dan jadi notif yang paling aku tunggu selama ini.</p>
-    <p>Enggak masalah kok kalau memang kamu ngerasa kita belum bisa lanjut lebih jauh atau kamu belum bisa buka hati. Aku sangat menghargai itu.</p>
-    <p>Daripada kita tiba-tiba hilang dan jadi asing, aku lebih milih kita balik jadi teman biasa aja yang santai kayak awal. Jadi, jangan merasa terbebani ya, aku nggak akan nuntut apa-apa lagi.</p>
-    <p>Kita mulai dengan baik-baik, aku harap kita juga tetap baik-baik sebagai teman. <em>Take care ya, sukses terus buat semua urusan kamu.</em></p>
 
-    <div class="media">
-      <label>Tambahkan foto kenangan</label>
-      <input type="file" accept="image/*" onchange="showImage(event)" />
-      <img id="preview" />
+<body onclick="playMusic()">
 
-      <label>Tambahkan lagu</label>
-      <input type="file" accept="audio/*" onchange="playAudio(event)" />
-      <audio id="audio" controls></audio>
-    </div>
+<div class="container">
+  <h1>Keisya Putri Salsabila</h1>
+  <div class="subtitle">" Sebuah Pengakuan Diam-Diam "</div>
 
-    <footer>
-      dibuat dengan tulus ✨
-    </footer>
-  </div>
+  <p>
+    Di belahan bumi ini, aku tidak meminta banyak hal. Aku hanya ingin kau tahu
+    bahwa pada saat kau tertidur pulas dan dunia menjadi sunyi, aku dengan tenang
+    menyebut namamu dalam doa-doaku yang panjang.
+  </p>
 
-  <script>
-    function showImage(event) {
-      const img = document.getElementById('preview');
-      img.src = URL.createObjectURL(event.target.files[0]);
-      img.style.display = 'block';
-    }
-    function playAudio(event) {
-      const audio = document.getElementById('audio');
-      audio.src = URL.createObjectURL(event.target.files[0]);
-      audio.style.display = 'block';
-      audio.play();
-    }
-  </script>
+  <p>
+    Aku mencintaimu tanpa mengharap balasan, seperti laut yang setia mencintai pantai;
+    meski aku harus pergi dan datang berkali-kali tanpa henti, tujuanku tetaplah dirimu.
+  </p>
+
+  <p>
+    Bagiku, bahagia sesederhana melihat senyum kecilmu yang tersimpan abadi dalam ingatanku.
+    Senyum itulah yang membuat duniaku jauh lebih terang daripada ribuan lentera yang menyala sekaligus.
+  </p>
+
+  <div class="hint">sentuh layar untuk memulai musik 🎵</div>
+</div>
+
+<audio id="musik" src="lagu.mp3"></audio>
+
+<script>
+function playMusic() {
+  const audio = document.getElementById("musik");
+  audio.play();
+}
+</script>
+
 </body>
 </html>
