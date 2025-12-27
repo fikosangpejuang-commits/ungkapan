@@ -1,135 +1,145 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sebuah Pengakuan Diam-Diam</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>from : Me, To : You</title>
 
-<!-- Font klasik -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Font klasik -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  min-height: 100vh;
-  background: 
-    linear-gradient(rgba(0,80,120,0.6), rgba(0,80,120,0.6)),
-    url('foto.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-  text-align: center;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: 
+        linear-gradient(rgba(10,40,80,0.65), rgba(10,40,80,0.65)),
+        url('foto.jpg') center/cover no-repeat;
+      font-family: 'Inter', sans-serif;
+      color: #f2f6fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.container {
-  max-width: 700px;
-  padding: 30px;
-  animation: fadeIn 2s ease forwards;
-}
+    .container {
+      max-width: 720px;
+      padding: 48px 36px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      animation: fadeIn 1.2s ease;
+    }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  margin-bottom: 10px;
-  opacity: 0;
-  animation: slideUp 1.5s ease forwards;
-}
+    h1 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: textIn 1.2s ease forwards;
+    }
 
-.subtitle {
-  font-style: italic;
-  margin-bottom: 25px;
-  opacity: 0;
-  animation: slideUp 1.5s ease forwards;
-  animation-delay: 0.5s;
-}
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      opacity: 0.85;
+      margin-bottom: 36px;
+      animation: textIn 1.4s ease forwards;
+    }
 
-p {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 18px;
-  opacity: 0;
-  animation: fadeText 1.5s ease forwards;
-}
+    p {
+      line-height: 1.9;
+      font-size: 16px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: textIn 1.6s ease forwards;
+    }
 
-/* Delay bertahap */
-p:nth-of-type(1) { animation-delay: 1s; }
-p:nth-of-type(2) { animation-delay: 2s; }
-p:nth-of-type(3) { animation-delay: 3s; }
+    p:nth-of-type(2) { animation-delay: .2s; }
+    p:nth-of-type(3) { animation-delay: .4s; }
+    p:nth-of-type(4) { animation-delay: .6s; }
+    p:nth-of-type(5) { animation-delay: .8s; }
 
-.hint {
-  margin-top: 30px;
-  font-size: 14px;
-  opacity: 0.8;
-}
+    .hint {
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.75;
+      margin-top: 32px;
+      font-style: italic;
+    }
 
-/* Animasi */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-@keyframes fadeText {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-</style>
+    @keyframes textIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
+<body>
 
-<body onclick="playMusic()">
+  <audio id="bgm" src="lagu.mp3" loop></audio>
 
-<div class="container">
-  <h1>Keisya Putri Salsabila</h1>
-  <div class="subtitle">" Sebuah Pengakuan Diam-Diam "</div>
+  <div class="container" onclick="playMusic()">
+    <h1>from : Me, To : You</h1>
+    <div class="subtitle">“ Tak perlu khawatir ”</div>
 
-  <p>
-    Di belahan bumi ini, aku tidak meminta banyak hal. Aku hanya ingin kau tahu
-    bahwa pada saat kau tertidur pulas dan dunia menjadi sunyi, aku dengan tenang
-    menyebut namamu dalam doa-doaku yang panjang.
-  </p>
+    <p>
+      Ada masanya kita terlalu sibuk menghitung siapa saja yang tidak menyukai kita, sampai lupa bahwa hidup ini tidak sedang menunggu persetujuan siapa pun. Bahkan jika jumlah mereka banyak, hidupmu tidak akan berkurang sedikit pun selama langkahmu tidak pernah mengusik kehidupan mereka.
+    </p>
 
-  <p>
-    Aku mencintaimu tanpa mengharap balasan, seperti laut yang setia mencintai pantai;
-    meski aku harus pergi dan datang berkali-kali tanpa henti, tujuanku tetaplah dirimu.
-  </p>
+    <p>
+      Bukankah yang paling penting bukan jumlah orang yang tidak menyukaimu, melainkan kedamaian dalam hatimu sendiri? <em>Peace inside is louder than noise outside.</em>
+    </p>
 
-  <p>
-    Bagiku, bahagia sesederhana melihat senyum kecilmu yang tersimpan abadi dalam ingatanku.
-    Senyum itulah yang membuat duniaku jauh lebih terang daripada ribuan lentera yang menyala sekaligus.
-  </p>
+    <p>
+      Bayangkan kalau setiap keputusan kita hanya diukur dari bagaimana orang lain menilai. Apa tidak lelah? Bagaimana kalau justru yang mereka benci bukan salahmu, tapi bayangan yang mereka bentuk sendiri?
+    </p>
 
-  <div class="hint">sentuh layar untuk memulai musik 🎵</div>
-</div>
+    <p>
+      Maka di titik ini kita belajar satu hal: bukan semua pandangan harus ditampung, bukan semua cibiran harus dijawab. Hidup ini terlalu singkat untuk habis dipakai menjelaskan diri pada orang yang bahkan tidak ingin mengerti.
+    </p>
 
-<audio id="musik" src="lagu.mp3"></audio>
+    <p>
+      Selama yang kau lakukan tidak melukai, tidak merampas, tidak mengganggu kehidupan orang lain, maka kamu tetap berada di jalan yang benar. Orang boleh tidak suka, tapi rasa hormat pada dirimu sendiri jauh lebih berharga daripada rasa suka yang dipaksakan.
+    </p>
 
-<script>
-function playMusic() {
-  const audio = document.getElementById("musik");
-  audio.play();
-}
-</script>
+    <p>
+      Jadi menurutku, <strong>“Tidak semua orang harus menyukaimu, tapi jangan sampai hatimu sendiri berhenti mencintai dirimu.”</strong>
+      Pada akhirnya, yang membuatmu bernilai bukan seberapa banyak orang menyukai, tapi seberapa tulus kau menjalani hidup tanpa merugikan siapa pun.
+    </p>
+
+    <div class="hint">sentuh layar untuk memulai musik 🎵</div>
+
+    <footer>
+      ditulis dalam tenang 🌊
+    </footer>
+  </div>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById("bgm");
+      if (audio.paused) {
+        audio.play();
+      }
+    }
+  </script>
 
 </body>
 </html>
